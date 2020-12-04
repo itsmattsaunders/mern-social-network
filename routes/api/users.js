@@ -5,10 +5,7 @@ const { check, validationResult } = require('express-validator/check')
 //@route POST api/users
 //@desc Register user route
 //@access public
-router.post('/', (req, res) => {
-//   res.send(req.body) 
-// }
-
+router.post('/',
 [
   check('name', 'Name is required').not().isEmpty(),
   check('email', 'A valid email is required').isEmail(),
@@ -18,8 +15,8 @@ router.post('/', (req, res) => {
   if(!errors.isEmpty()){
     res.status(400).json({ errors: errors.array() });
   } 
-
-}
+  res.send(req.body)
+});
  
 
 
