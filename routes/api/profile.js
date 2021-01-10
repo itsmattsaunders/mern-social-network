@@ -40,6 +40,18 @@ router.post('/',
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    const {
+      website,
+      skills,
+      youtube,
+      twitter,
+      instagram,
+      linkedin,
+      facebook,
+      // spread the rest of the fields we don't need to check
+      ...rest
+    } = req.body;
   }
 );
   
